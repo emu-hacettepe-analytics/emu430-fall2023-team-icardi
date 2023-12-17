@@ -1,6 +1,9 @@
 ---
 title: "Data"
 ---
+```{r}
+data <- read.csv("C:/Users/MONSTER/Desktop/emu430proje/Football teams.csv")
+```
 
 ```{r}
 head(data)
@@ -23,5 +26,7 @@ corrplot(corr,tl.col = 'black')
 
 ```{r}
 boxplot(Rating~Tournament,data=data,col=c("red","pink","lightblue","yellow","purple"))
-points(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#
+means <- tapply(data$Rating, data$Tournament, mean, na.rm = TRUE)
+points(1:length(means), means, pch = 4)
+  #points(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#
 ```
