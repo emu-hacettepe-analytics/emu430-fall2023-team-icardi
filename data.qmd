@@ -5,3 +5,23 @@ title: "Data"
 ```{r}
 head(data)
 ```
+
+```{r}
+summary(data)
+```
+
+```{r}
+library(corrplot)
+library(tidyverse)
+library(dplyr)
+data_num <- select_if(data, is.numeric)
+# correlation
+corr <- cor(data_num)
+# plot
+corrplot(corr,tl.col = 'black')
+```
+
+```{r}
+boxplot(Rating~Tournament,data=data,col=c("red","pink","lightblue","yellow","purple"))
+points(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#
+```
