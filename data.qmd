@@ -2,17 +2,17 @@
 title: "Data"
 ---
 
-```{r}
+```{r a}
 
 head(data)
 ```
 
-```{r}
+```{r b}
 
 summary(data)
 ```
 
-```{r}
+```{r c}
 
 library(corrplot)
 library(tidyverse)
@@ -24,7 +24,7 @@ corr <- cor(data_num)
 corrplot(corr,tl.col = 'black')
 ```
 
-```{r}
+```{r d}
 
 boxplot(Rating~Tournament,data=data,col=c("red","pink","lightblue","yellow","purple"))
 points(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#
