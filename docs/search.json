@@ -25,6 +25,6 @@
     "href": "data.html",
     "title": "Data",
     "section": "",
-    "text": "# we imported data by selecting file&gt;import dataset\n\n\n\nsummary(data)\n\n\n\nhead\n\n\n\n\n Back to top"
+    "text": "head(data)\n\n                                                                            \n1 function (..., list = character(), package = NULL, lib.loc = NULL,        \n2     verbose = getOption(\"verbose\"), envir = .GlobalEnv, overwrite = TRUE) \n3 {                                                                         \n4     fileExt &lt;- function(x) {                                              \n5         db &lt;- grepl(\"\\\\\\\\.[^.]+\\\\\\\\.(gz|bz2|xz)$\", x)                     \n6         ans &lt;- sub(\".*\\\\\\\\.\", \"\", x)                                      \n\n\n\n\n\n Back to top"
   }
 ]

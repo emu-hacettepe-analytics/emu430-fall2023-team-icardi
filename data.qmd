@@ -2,18 +2,6 @@
 title: "Data"
 ---
 
-```{b  {r}
-
-# we didnt need any preprocessing since our data doesnt have any NA values.
-
-# we imported data by selecting file>import dataset
-
-
-
-summary(data)
-
-```
-
-```{a {r}
+```{r}
 head(data)
 ```
