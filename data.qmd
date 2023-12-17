@@ -5,15 +5,18 @@ title: "Data"
 data <- read.csv("C:/Users/MONSTER/Desktop/emu430proje/Football teams.csv")
 ```
 
-```{r}
+```{r a}
+
 head(data)
 ```
 
-```{r}
+```{r b}
+
 summary(data)
 ```
 
-```{r}
+```{r c}
+
 library(corrplot)
 library(tidyverse)
 library(dplyr)
@@ -24,7 +27,8 @@ corr <- cor(data_num)
 corrplot(corr,tl.col = 'black')
 ```
 
-```{r}
+```{r d}
+
 boxplot(Rating~Tournament,data=data,col=c("red","pink","lightblue","yellow","purple"))
 means <- tapply(data$Rating, data$Tournament, mean, na.rm = TRUE)
 points(1:length(means), means, pch = 4)
