@@ -25,6 +25,6 @@
     "href": "data.html",
     "title": "Data",
     "section": "",
-    "text": "Data source: xxx\n\n\n\n Back to top"
+    "text": "[Data source] (Football teams | Rankings | Stats (kaggle.com))\n\n\n\n# we didnt need any preprocessing since our data doesnt have any NA values\n\n# we imported data by selecting file&gt;import dataset\n\n\n\nsummary(data)\n\nhead\nhead(data)\ncorplot\n\ninstall.packages(\"corrplot\")\ninstall.packages(\"tidyverse\")\ninstall.packages(\"dplyr\")\n\nlibrary(dplyr)\nlibrary(tidyverse)\nlibrary(corrplot)\ndata &lt;- as.data.frame(data)\n# correlation plotu için numerik olan değişkenler filtrelendi\ndata_num &lt;- select_if(data, is.numeric)\n# correlation\ncorr &lt;- cor(data_num)\n# plot\ncorrplot(corr,tl.col = 'black')\nbox\n# rating boxplot\nboxplot(Rating~Tournament,data=data,col=c(\"red\",\"pink\",\"lightblue\",\"yellow\",\"purple\"))\npoints(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#\n\n\n\n\n Back to top"
   }
 ]

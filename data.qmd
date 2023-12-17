@@ -4,7 +4,7 @@ title: "Data"
 
 \[Data source\] ([Football teams \| Rankings \| Stats (kaggle.com)](https://www.kaggle.com/datasets/varpit94/football-teams-rankings-stats/))
 
-```{r}
+```{a {r}
 
 
 # we didnt need any preprocessing since our data doesnt have any NA values
@@ -20,29 +20,8 @@ summary(data)
 
 ```
 
-```{r}
+head
+
+```{b{r}
 head(data)
-```
-
-```{r}
-install.packages("corrplot")
-installed.packages("tidyverse")
-install.packages("dplyr")
-library(corrplot)
-library(tidyverse)
-library(dplyr)
-data <- as.data.frame(data)
-# correlation plotu için numerik olan değişkenler filtrelendi
-data_num <- select_if(data, is.numeric)
-# correlation
-corr <- cor(data_num)
-# plot
-corrplot(corr,tl.col = 'black')
-```
-
-```{r}
-# rating boxplot
-boxplot(Rating~Tournament,data=data,col=c("red","pink","lightblue","yellow","purple"))
-points(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#
-
 ```
