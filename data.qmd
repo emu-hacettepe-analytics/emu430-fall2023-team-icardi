@@ -2,10 +2,7 @@
 title: "Data"
 ---
 
-\[Data source\] ([Football teams \| Rankings \| Stats (kaggle.com)](https://www.kaggle.com/datasets/varpit94/football-teams-rankings-stats/))
-
-```{a {r}
-
+```{b  {r}
 
 # we didnt need any preprocessing since our data doesnt have any NA values
 
@@ -15,13 +12,8 @@ title: "Data"
 
 summary(data)
 
-
-
-
 ```
 
-head
-
-```{b{r}
+```{a {r}
 head(data)
 ```
