@@ -11,23 +11,18 @@ This is our template..
 
 # Team Members
 
-1.  \[Mert Canlı\]\<(<https://emu-hacettepe-analytics.github.io/emu430-fall2023-mertcanli01/>)\>
+1.  [Mert Canlı](https://emu-hacettepe-analytics.github.io/emu430-fall2023-mertcanli01)
 
-2.  Bekir Gök
+2.  [Bekir Gök](https://emu-hacettepe-analytics.github.io/emu430-fall2023-bgk1)
 
-3.  Alperen Gürkan
+3.  [Alperen Gürkan](https://emu-hacettepe-analytics.github.io/emu430-fall2023-alperengurkan)
 
-4.  Elif Ece Uygun
+4.  [Elif Ece Uygun](https://emu-hacettepe-analytics.github.io/emu430-fall2023-elifeceuygun)
 
 # Project Topic
 
-The purpose
-of this project is to observe the relationship between performance metrics of teams and find the metrics that
-have a big impact on the rating of the teams.
+The purpose of this project is to observe the relationship between performance metrics of teams and find the metrics that have a big impact on the rating of the teams.
 
 # Data Set
 
-Our dataset\'s name is \"Football teams \| Rankings \| Stats\" taken from Kaggle This dataset contains rankings
-and statistics for football teams from 5 leagues. In the dataset there are 10 columns and 98 observations.
-The columns contain statistics that allow us to analyze a team\'s success and therefore rank them. 2 of our
-variables are characteristic, 5 of them are continuous and the rest of the variables are discrete
+Our dataset's name is "Football teams \| Rankings \| Stats" taken from Kaggle This dataset contains rankings and statistics for football teams from 5 leagues. In the dataset there are 10 columns and 98 observations. The columns contain statistics that allow us to analyze a team's success and therefore rank them. 2 of our variables are characteristic, 5 of them are continuous and the rest of the variables are discrete.

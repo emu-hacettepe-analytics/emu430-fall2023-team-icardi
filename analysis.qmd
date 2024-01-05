@@ -1,3 +1,25 @@
 ---
 title: "Analysis"
 ---
+
+### Columns :
+
+**Team** : the team name in the tournaments.
+
+**Tournament** : the league when the data come from.
+
+**Goals** : the score of each team.
+
+**Shots.pg** : the number of shots per game.
+
+**yellow_cards** : the total number of yellow card for the team.
+
+**red_cards** : the total number of red card for the team.
+
+**Possession.** : the team's overall possession percentage in matches.
+
+**Pass**. : the average number of passes per game.
+
+**AerialsWon** : the total number of aerial duels won by the team.
+
+**Rating** : a numerical value as overall performance of the team.

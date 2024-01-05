@@ -1,36 +1,152 @@
 ---
 title: "Data"
 ---
+
 ```{r}
-data <- read.csv("C:/Users/MONSTER/Desktop/emu430proje/Football teams.csv")
+data <- read.csv("C:/Users/elife/OneDrive/Masaüstü/EMU430 - Data Analytics/Football teams.csv")
+
+
 ```
 
-```{r a}
+```{r}
 
-head(data)
-```
-
-```{r b}
-
-summary(data)
-```
-
-```{r c}
-
+# The data was already preprocessed and didn't have NA values.
+# So, we didn't have to do any other preprocessing. 
 library(corrplot)
 library(tidyverse)
 library(dplyr)
+library(nlme)
+library(lattice)
+library(ggplot2)
+library(plotrix)
+
+# Summarize the data
+table(data$Tournament)
+summary(data)
+colnames(data)
+head(data)
+
+data <- as.data.frame(data) 
+
+# In order to do the correlation, we filter the data into only numeric columns.
 data_num <- select_if(data, is.numeric)
-# correlation
+
+
+```
+
+```{r}
+
+# Correlation
 corr <- cor(data_num)
-# plot
-corrplot(corr,tl.col = 'black')
+
+# Plot
+corrplot(corr,tl.col = 'black') # color of the text
+colnames(data)
+#colnames(data)[4] <- c("Shots.pg")
+
+
 ```
 
-```{r d}
+```{r}
+# Rating boxplot
 
-boxplot(Rating~Tournament,data=data,col=c("red","pink","lightblue","yellow","purple"))
-means <- tapply(data$Rating, data$Tournament, mean, na.rm = TRUE)
-points(1:length(means), means, pch = 4)
-  #points(1:4,tapply(data$Rating,data$Tournament,mean,na.rm=TRUE),pch=4)#
+p <- data %>% mutate(Tournament = reorder(Tournament,Rating,FUN=median)) %>% ggplot(aes(Tournament,Rating,fill=Tournament))
+p + geom_boxplot()
 ```
+
+```{r}
+
+# Relationship between rating and other variables that has significant correlation
+plot(data$Rating,data$Goals,xlab="Rating",ylab="Goals",main = "Rating vs Goals Linear Model")
+abline(lm(Goals ~ Rating, data = data),col="red")
+res<-lm(Goals ~ Rating, data = data)
+summary(res)
+
+
+plot(data$Rating,data$Shots.pg, xlab="Rating",ylab="Shots.pg",main = "Rating vs Shots Linear Model")
+abline(lm(Shots.pg ~ Rating, data = data), col = "purple")
+res3<-lm(Shots.pg ~ Rating, data = data)
+summary(res3)
+
+# Positive linear relationship between rating and both of these variables.
+
+plot(data$Rating,data$Pass., xlab="Rating",ylab="Pass.",main = "Rating vs Pass Linear Model")
+abline(lm(Pass. ~ Rating, data = data), col = "green")
+res4<-lm(Pass. ~ Rating, data = data)
+summary(res4)
+
+# Not as strong
+
+plot(data$Pass., data$AerialsWon, xlab = "Pass.", ylab = "AerialsWon", main = "AerialsWon vs Pass Linear Model")
+abline(lm(AerialsWon ~ Pass., data = data), col = "yellow")
+res2 <- lm(AerialsWon ~ Pass., data = data)
+summary(res2)
+
+# Negative linear relationship
+
+
+
+```
+
+```{r}
+
+# Rating vs Goal comparison among tournaments
+plot(data$Rating,data$Goals,xlab="Rating",ylab="Goals",main = "Rating vs Goal Linear Models")
+abline(lm(Goals ~ Rating, data = subset(data, Tournament == "Premier League")), col = "red")
+abline(lm(Goals ~ Rating, data = subset(data, Tournament == "Serie A")), col = "blue")
+abline(lm(Goals ~ Rating, data = subset(data, Tournament == "LaLiga")), col = "orange")
+abline(lm(Goals ~ Rating, data = subset(data, Tournament == "Bundesliga")), col = "pink")
+abline(lm(Goals ~ Rating, data = subset(data, Tournament == "Ligue 1")), col = "purple")
+legend("topleft",legend=c("Premier League","Serie A","LaLiga","Bundesliga","Ligue 1"),pch=16,cex = 0.9, col=c("blue","red","orange","pink","purple"))
+```
+
+```{r}
+# Rating vs Shots comparison among tournaments
+plot(data$Rating,data$Shots.pg,xlab="Rating",ylab="Shots.pg",main = "Rating ve Shots.pg Linear Models")
+abline(lm(Shots.pg ~ Rating, data = subset(data, Tournament == "Premier League")), col = "red")
+abline(lm(Shots.pg ~ Rating, data = subset(data, Tournament == "Serie A")), col = "blue")
+abline(lm(Shots.pg ~ Rating, data = subset(data, Tournament == "LaLiga")), col = "orange")
+
+abline(lm(Shots.pg ~ Rating, data = subset(data, Tournament == "Bundesliga")), col = "pink")
+abline(lm(Shots.pg ~ Rating, data = subset(data, Tournament == "Ligue 1")), col = "purple")
+legend("topleft",legend=c("Premier League","Serie A","LaLiga","Bundesliga","Ligue 1"),pch=16,cex = 0.9, col=c("blue","red","orange","pink","purple"))
+```
+
+```{r}
+
+# First chart consists of the teams whose ratings are smaller than the average rating
+# in their specified tournament. Second chart consists of the teams whose ratings are greater than the average.
+
+
+up_group <- dplyr::filter(data,Rating>6.646)
+low_group <-dplyr::filter(data,Rating<6.646)
+mytable <- table(up_group$Tournament)
+
+lbls <- paste(names(mytable), "\n", mytable, sep="")
+pie(mytable, labels = lbls,
+    main="Pie Chart of teams with rating greater than the mean ",col=c("blue","red","orange","pink","purple"))
+
+mytable <- table(low_group$Tournament)
+lbls <- paste(names(mytable), "\n", mytable, sep="")
+
+pie(mytable, labels = lbls,
+    main="Pie Chart of teams with rating smaller than yhe mean ",col=c("blue","red","orange","pink","purple"))
+
+
+boxplot(up_group$Goals,low_group$Goals,ylab="Goals",main = "Up and Low Group Goals",col=c("blue","red"))
+legend("topleft", legend=c("Up group", "Low group"),pch=16,cex = 0.9,col=c("blue", "red"), text.font=4)
+```
+```{r}
+
+#Distributions of some variables faceted by Tournaments
+
+data %>% ggplot(aes(x=Rating, color=Tournament)) + geom_density() + facet_wrap(~Tournament)
+data %>% ggplot(aes(x=Goals, color=Tournament)) + geom_density() + facet_wrap(~Tournament)
+data %>% ggplot(aes(x=Shots.pg, color=Tournament)) + geom_density() + facet_wrap(~Tournament)
+
+data %>% ggplot(aes(x=Possession., color=Tournament)) + geom_density() + facet_wrap(~Tournament)
+
+data %>% ggplot(aes(x=AerialsWon, color=Tournament)) + geom_density() + facet_wrap(~Tournament)
+
+```
+
