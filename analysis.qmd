@@ -2,6 +2,8 @@
 title: "Analysis"
 ---
 
+# Analysis of the Project
+
 ### Columns :
 
 **Team** : the team name in the tournaments.
@@ -18,8 +20,18 @@ title: "Analysis"
 
 **Possession.** : the team's overall possession percentage in matches.
 
-**Pass**. : the average number of passes per game.
+**Pass**. : the success rate of passes.
 
 **AerialsWon** : the total number of aerial duels won by the team.
 
 **Rating** : a numerical value as overall performance of the team.
+
+### Key Takeaways:
+#### 1)
+The parameters that affect the rating most are Goals, Shots per Game and Possession percentage. Red cards and yellow cards have very little correlation with the overall performance.
+
+#### 2)
+We found out that as the rate of successful passes increase, Aerial Wons decrease. This may be because of the fact that if the players prefer easy passes to long balls, success rate of the passes increase.
+
+#### 3)
+In the Rating vs Goal graph, we can see that for the same value of rating, different tournaments have teams with different number of goals. Serie A has made its ratings with much less number of goals than Premier League. This means that Serie A prefers a defensive game rather than attacking.

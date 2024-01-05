@@ -26,3 +26,5 @@ The purpose of this project is to observe the relationship between performance m
 # Data Set
 
 Our dataset's name is "Football teams \| Rankings \| Stats" taken from Kaggle This dataset contains rankings and statistics for football teams from 5 leagues. In the dataset there are 10 columns and 98 observations. The columns contain statistics that allow us to analyze a team's success and therefore rank them. 2 of our variables are characteristic, 5 of them are continuous and the rest of the variables are discrete.
+
+Our last data set as .Rdata file is [here](https://drive.google.com/drive/u/1/folders/1dJeZ-4vEby91ryXvqDD0NdL9yJH5akMO)

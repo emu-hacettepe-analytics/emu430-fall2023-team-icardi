@@ -136,6 +136,7 @@ pie(mytable, labels = lbls,
 boxplot(up_group$Goals,low_group$Goals,ylab="Goals",main = "Up and Low Group Goals",col=c("blue","red"))
 legend("topleft", legend=c("Up group", "Low group"),pch=16,cex = 0.9,col=c("blue", "red"), text.font=4)
 ```
+
 ```{r}
 
 #Distributions of some variables faceted by Tournaments
@@ -150,3 +151,8 @@ data %>% ggplot(aes(x=AerialsWon, color=Tournament)) + geom_density() + facet_wr
 
 ```
 
+```{r}
+
+save(data, file = "final_dataset.RData")
+
+```

@@ -112,7 +112,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#columns" id="toc-columns" class="nav-link active" data-scroll-target="#columns">Columns :</a></li>
+  <li><a href="#analysis-of-the-project" id="toc-analysis-of-the-project" class="nav-link active" data-scroll-target="#analysis-of-the-project">Analysis of the Project</a>
+  <ul class="collapse">
+  <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns :</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways:</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -140,6 +144,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="analysis-of-the-project" class="level1">
+<h1>Analysis of the Project</h1>
 <section id="columns" class="level3">
 <h3 class="anchored" data-anchor-id="columns">Columns :</h3>
 <p><strong>Team</strong> : the team name in the tournaments.</p>
@@ -149,11 +155,27 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>yellow_cards</strong> : the total number of yellow card for the team.</p>
 <p><strong>red_cards</strong> : the total number of red card for the team.</p>
 <p><strong>Possession.</strong> : the team’s overall possession percentage in matches.</p>
-<p><strong>Pass</strong>. : the average number of passes per game.</p>
+<p><strong>Pass</strong>. : the success rate of passes.</p>
 <p><strong>AerialsWon</strong> : the total number of aerial duels won by the team.</p>
 <p><strong>Rating</strong> : a numerical value as overall performance of the team.</p>
+</section>
+<section id="key-takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways">Key Takeaways:</h3>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section">1)</h4>
+<p>The parameters that affect the rating most are Goals, Shots per Game and Possession percentage. Red cards and yellow cards have very little correlation with the overall performance.</p>
+</section>
+<section id="section-1" class="level4">
+<h4 class="anchored" data-anchor-id="section-1">2)</h4>
+<p>We found out that as the rate of successful passes increase, Aerial Wons decrease. This may be because of the fact that if the players prefer easy passes to long balls, success rate of the passes increase.</p>
+</section>
+<section id="section-2" class="level4">
+<h4 class="anchored" data-anchor-id="section-2">3)</h4>
+<p>In the Rating vs Goal graph, we can see that for the same value of rating, different tournaments have teams with different number of goals. Serie A has made its ratings with much less number of goals than Premier League. This means that Serie A prefers a defensive game rather than attacking.</p>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
